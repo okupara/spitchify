@@ -1,0 +1,9 @@
+{
+  "mediaList": [
+    {
+      "name": "pitchfork",
+      "urlPattern": "http://pitchfork.com/reviews/albums/.+/$",
+      "originPattern": "http://pitchfork.com"
+    }
+  ]
+}

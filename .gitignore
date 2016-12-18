@@ -1,0 +1,4 @@
+node_modules/
+.DS_Store
+chrome_extension/background.js
+chrome_extension/content.js
