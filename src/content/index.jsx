@@ -84,6 +84,7 @@ const onMessageFromBG = (param) => {
     if (isInitialized) {
       rootElement.style.display = 'none';
       Store.dispatch({ type: INVISIBLE });
+      beforeURL = null;
     }
     return;
   } else if (isInitialized && isMatchURL && beforeURL !== url) {
