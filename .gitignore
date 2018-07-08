@@ -1,5 +1,4 @@
 node_modules/
 .DS_Store
 .node-version
-chrome_extension/background.js
-chrome_extension/content.js
+npm-debug.log
