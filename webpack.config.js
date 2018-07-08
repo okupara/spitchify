@@ -1,31 +1,68 @@
-//I'm considering how I config when I want to build server-side program.
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
+  mode: 'production',
   entry: {
-    'background': './src/background.js',
-    'content': './src/content/index.jsx'
+    app: './src/index.tsx'
   },
   output: {
-    path: './chrome_extension/',
-    filename: '[name].js'
+      path:`${__dirname}/dist`,
+      filename: '[name].js'
   },
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.js(x?)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'eslint'
-      }
-    ],
-    loaders: [
+        use: 'ts-loader'
+      }/*,
       {
-        test: /\.js(x?)$/,
-        exclude: [/node_modules/],
-        loader: 'babel',
-        query: {
-          presets: ['es2016', 'es2017', 'react', 'stage-3'],
-          plugins: ['babel-plugin-transform-es2015-modules-commonjs']
+        test: /\.worker\.js/,
+        exclude: [/node_modules/, /dist/],
+        use: {
+          loader: 'worker-loader',
+          options: { inline: true }
         }
+      }*/
+      , {
+        test: /\.css/,
+        loader: ExtractTextPlugin.extract(
+          Object.assign({
+            fallback: {
+              loader: require.resolve('style-loader'),
+              options: {
+                hmr: false
+              }
+            },
+            use: [
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                  minimize: true,
+                  sourceMap: false
+                }
+              }
+            ]
+          })
+        )
       }
     ]
+  },
+  plugins: [
+    // new HtmlWebpackPlugin({
+    //   inject: true,
+    //   template: path.join(process.cwd(), 'public', 'index.html')
+    // }),
+    // new ExtractTextPlugin({
+    //   filename: 'index.css'
+    // })
+  ],
+  resolve: {
+    extensions: [
+      '.ts', '.tsx', '.js', '.json'
+    ]
   }
-}
+};
