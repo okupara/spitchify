@@ -1,17 +1,6 @@
-# spotify on media
+# Spitchify
 
-This chrome extension puts Spotify Play Button into an album review page by automatically searching in Spotify.
-However, now, it's adopted to only Pitchfork. (http://pitchfork.com/)
+This a Chrome Extension that automatically puts Spotify Embed Player into album review pages on Spotify.
 
 ## install
-I uploaded the zip file which include source codes. 
-
-https://github.com/okupara/spotify_on_media/releases
-
-You can download it and install like below link.
-
-http://techapple.net/2015/09/how-to-install-load-unpacked-extension-in-google-chrome-browser-os-chromebooks/
-
-
-
-![demo](https://github.com/okupara/spotify_on_media/wiki/img/demo.gif)
+*update* this Extension has been rebuilding from scrach, it'll be published as an Chrome Extension after that development gets finished.
