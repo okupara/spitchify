@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config=./webpack.config.js",
-    "build:run": "NODE_ENV=production \"npm run build ----watch\"",
+    "build": "NODE_ENV=development ./node_modules/.bin/webpack --config=./webpack.config.js",
+    "build:watch": "NODE_ENV=development ./node_modules/.bin/webpack --watch --config=./webpack.config.js",
     "cypress": "cypress open"
   },
   "author": "",
@@ -21,9 +21,7 @@
     "prettier": "^1.13.7",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.4.2",
-    "typescript": "^2.9.2",
-    "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "typescript": "^2.9.2"
   },
   "dependencies": {
     "react": "^16.4.1",

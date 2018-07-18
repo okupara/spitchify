@@ -1,15 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Spotify on media",
-  "description": "This extension makes review pages of new albums possible to play it by spotify.",
+  "name": "Spitchify",
+  "description":
+    "This extension makes review pages of new albums possible to play it by spotify.",
   "version": "1.0",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": [
-    "content.css"
-  ],
+  "web_accessible_resources": ["content.css"],
   "content_scripts": [
     {
       "matches": ["*://*/*"],
@@ -17,7 +16,5 @@
       "run_at": "document_start"
     }
   ],
-  "permissions": [
-    "tabs", "webNavigation", "*://*/*"
-  ]
+  "permissions": ["tabs", "webNavigation", "*://*/*"]
 }

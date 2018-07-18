@@ -1,23 +1,24 @@
-const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "development",
   entry: {
-    app: './src/index.tsx'
+    content: "./src/content.ts",
+    background: "./src/background.ts"
   },
   output: {
-      path:`${__dirname}/dist`,
-      filename: '[name].js'
+    path: `${__dirname}/dist`,
+    filename: "[name].js"
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: 'ts-loader'
-      }/*,
+        use: "ts-loader"
+      } /*,
       {
         test: /\.worker\.js/,
         exclude: [/node_modules/, /dist/],
@@ -25,20 +26,20 @@ module.exports = {
           loader: 'worker-loader',
           options: { inline: true }
         }
-      }*/
-      , {
+      }*/,
+      {
         test: /\.css/,
         loader: ExtractTextPlugin.extract(
           Object.assign({
             fallback: {
-              loader: require.resolve('style-loader'),
+              loader: require.resolve("style-loader"),
               options: {
                 hmr: false
               }
             },
             use: [
               {
-                loader: require.resolve('css-loader'),
+                loader: require.resolve("css-loader"),
                 options: {
                   importLoaders: 1,
                   minimize: true,
@@ -61,8 +62,6 @@ module.exports = {
     // })
   ],
   resolve: {
-    extensions: [
-      '.ts', '.tsx', '.js', '.json'
-    ]
+    extensions: [".ts", ".tsx", ".js", ".json"]
   }
 };
