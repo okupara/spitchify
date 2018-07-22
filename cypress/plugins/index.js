@@ -12,7 +12,17 @@
 // the project's config changing)
 
 // eslint-disable-next-line no-unused-vars
+const path = require("path")
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  on("before:browser:launch", (browser = {}, args) => {
+    if (browser.name === "chrome") {
+      process.cwd()
+      const extensionPath = path.join(process.cwd(), "dist")
+      console.log(extensionPath)
+      args.push(`--load-extension=${extensionPath}`)
+    }
+  })
 }
